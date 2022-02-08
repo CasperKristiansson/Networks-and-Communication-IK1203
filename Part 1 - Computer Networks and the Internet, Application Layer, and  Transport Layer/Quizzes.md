@@ -1,5 +1,4 @@
 # Quiz Answers
-
 ## Home Assignment 1 Quiz
 **Question 1: Combine the following network access methods with the correct network technologies.**
 
@@ -13,7 +12,7 @@
 
 **Question 2: The questions is about the structure of the Internet. The Internet can be described as consisting of different kinds of organization, often companies, mainly Internet Service Providers (ISPs) and Internet Exchange Points (IXPs). We distinguish between to types of ISPs: Tier 1 ISPs and Access ISPs. Combine the descriptions below with the correct organization types:**
 
-- Connects to the end user (home, company, university, etc) -> Acess ISP
+- Connects to the end user (home, company, university, etc) -> Access ISP
 - Often has international coverage -> Tier 1 ISP
 - A meetling place where ISPs connect to each other -> IXP
 - Is usually a customer of one (or more) Tier 1 ISPs, and is being charged for sending and receiving traffic -> Access ISP
@@ -74,6 +73,10 @@
 
 http://www.wagstaff.info:8080/horse.html or https://www.wagstaff.info:8080/horse.html
 
+<br>
+<br>
+<br>
+
 ## 4. Lab 1 HTTP and mail protocols
 **Question 1: Find the best matching description of the protocols.**
 
@@ -94,6 +97,10 @@ http://www.wagstaff.info:8080/horse.html or https://www.wagstaff.info:8080/horse
 - IMAP over TLS/SSL -> 993
 - POP3 over TLS/SSL -> 995
 - E-mail message submission -> 587
+
+<br>
+<br>
+<br>
 
 ## 6. Testing HTTP using telnet
 
@@ -125,6 +132,10 @@ HINT: See details of the Response Status Codes in the RFC7231.**
 IMPORTANT: You must write only the method name in uppercase without any white spaces.**
 
 HEAD
+
+<br>
+<br>
+<br>
 
 ## 13. Testing SMTP using OpenSSL
 
