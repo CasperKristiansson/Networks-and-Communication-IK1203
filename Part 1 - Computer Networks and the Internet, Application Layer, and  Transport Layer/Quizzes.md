@@ -77,6 +77,127 @@ http://www.wagstaff.info:8080/horse.html or https://www.wagstaff.info:8080/horse
 <br>
 <br>
 
+## Home Assignment 2
+
+**Question 1: Which of the following statements about TCP are correct?**
+
+- [x] The flow control used by TCP normally gives superior performance compared to stop-and-wait.
+- [] All segments of a TCP connection will follow the same path through the network. 
+- [] TCP and UDP will share the available bandwidth in fair manner. 
+- [x] TCP includes mechanisms both for flow control and for congestion control. 
+- [x] The retransmission timeout used by TCP depends partly on the distance between sender and receiver.
+- [x] Before data can be transmitted, a connection has to be established.
+- [] Assume we use TCP to transfer a file. If a segment in the middle is lost, TCP has to wait for a timeout before the segment can be retransmitted.
+- [] TCP can guarantee that an application gets the bandwidth it requires.
+
+---
+
+**Question 2: Which of the following statements about DNS are true?**
+
+- [x] A DNS server uses caching to be able to answer queries faster. 
+- [x] Each organization, company, etc., that has a domain name is also responsible for answering DNS queries about its domain.
+- [] A client that wants to do a DNS lookup sends its query to a root server.  
+- [] DNS is a distributed database and therefore does not use the client-server model of communication.
+- [x] An organization's local DNS server (or default name server) helps other computers within the organization to resolve DNS queries.
+- [x] An authoritative DNS server knows the answers to queries about names in the domain for which it is responsible ("kth.se", for example).
+
+---
+
+**Question 3: Which of the following statements about TCP congestion control are correct?**
+
+- [] The congestion window always increases in size until there is a timeout at the sender. 
+- [x] During the slow start phase, the congestion window increases exponentially in size. 
+- [] Initially, the congestion window is 65535 bytes. 
+- [] With fast retransmit and fast recovery retransmissions are made for each duplicate ACK.
+- [x] During the congestion avoidance phase, the congestion window increases linearly in size.
+
+---
+
+**Question 4: Assume a reliable transport protocol of the same kind as described in the course book and the lectures (rdt 3.0 in the book), and that the protocol must work over a network where both bit errors and packet loss can occur. This protocol uses several mechanisms to detect and deal with the errors above, mainly timers, sequence numbers, checksums, and acknowledgements (ACKs).**
+
+- [x] We can deal with packet loss through the use of sequence numbers, ACKs, and timers. Checksums are not needed.
+- [] It is sufficient with checksums and ACKs to deal with bit errors (in data and ACKs). Neither sequence numbers nor timers are needed.
+- [] We need checksums, ACKs, and timers to deal with bit errors (in data and ACKs). Sequence numbers are not needed.
+- [] We can deal with packet loss using only sequence numbers and ACKs. Timers and checksums are not needed.
+- [] We can deal with packet loss and duplicates using only ACKs and timers. Sequence numbers and checksums are not needed.
+- [x] It is sufficient with checksums, ACKs, and sequence numbers to deal with bit errors (in data and ACKs). Timers are not needed.
+
+---
+
+**Question 5: TCP is connection oriented, which means that it has to deal with connection estblishment and termination. Which of the following statements are true?**
+
+- [x] When a TCP connection is being established, the very first segment sent is a TCP SYN segment.
+- [x] When TCP closes a connection, it normally uses a 4-way handshake. 
+- [] When a connections is closed in TCP, it has to be initiated by the same side that initiated the connection establishment.
+- [] The initial sequence number selected by TCP is normally 0, but in some implementations it is 1.
+- [] TCP's way of closing a connection makes it vulnerable to a denial-of service attack.
+
+---
+
+**Question 6: TCP and UDP are both transport layer protocols, but they operate very differently. Which of the following alternatives are correct?**
+
+- [] The TCP checksum can be turned off through the API used (the socket API). 
+- [x] UDP can protect data with a checksum, but does not always do that. 
+- [x] A server supporting both TCP and UDP can use the same port number for communicating with one client over UDP and another client over TCP.
+- [x] A UDP sender can "starve out" a TCP sender from the network. 
+- [] A TCP-based server communicating with several clients in parallel is normally doing so over one single connection.
+
+---
+
+**Question 7: We have studied two different protocols for flow control: Go-Back-N and Stop-and-wait. Below is a list of properties. Choose the protocol(s) for which the property is valid.**
+
+- Requires the sender to buffer multiple packets -> Go-Back-N
+- Packet loss can require retransmission even of several correctly delivered packets -> Go-Back-N
+- Use "cumulative ACKs" -> Go-Back-N
+- Normally gives lowest utilization of available network capacity -> Stop-and-Wait
+- Two sequence numbers are sufficient -> Stop-and-Wait
+
+---
+
+**Question 8: Assume we have a transport level connection with a capacity of 8 Mbit/s and that the delay between sender and receiver is 5 ms (one-way). Which is the optimal window size in bytes that the sender should use? Hint: calculate the bandwidth-delay product. Answer in number of bytes (not kB, not bits). Give only the value without units as your answer.**
+
+Optimal window size = capacity x RTT = 8 Mbit/s x 10 ms = 10000 bytes
+
+---
+
+**Question 9: DNS can be seen as a distributed database. What kind of lookup operations (or translations) are supported by DNS?**
+
+- [x] Name to name 
+- [x] Name to authoritative DNS server 
+- [x] Name to IPv4 address 
+- [x] Name to mail server 
+- [x] Name to IPv6 address
+
+---
+
+**Question 10: Web cookies, or HTTP cookies, are used by many web servers, for different purposes. Which of the following statements about web cookies are true?**
+
+- [] By examining a cookie in my web browser, I can determine what information the web server has about me.
+- [x] By using cookies, a web server can keep track of when a user last visited the site. 
+- [x] Cookies are created by the web server and stored in the web client. 
+- [] Cookies are small programs that are executed in the web browser. 
+- [x] By using cookies, web servers can for instance keep track of user-specific information, such as shopping baskets.
+- [] A web server can ask to see all cookies that the web browser has.
+
+---
+
+**Question 11: You have just started your computer and the first thing you do is to open a web browser to visit the site "www.kth.se". Which  application and transport layer protocols need to be involved in order to fetch the web page to your browser?**
+
+- [] BitTorrent
+- [x] UDP
+- [] MIME
+- [] POP
+- [x] HTTP
+- [x] TCP
+- [] SMTP
+- [] IMAP
+- [x] DNS
+
+
+<br>
+<br>
+<br>
+
 ## 4. Lab 1 HTTP and mail protocols
 **Question 1: Find the best matching description of the protocols.**
 
