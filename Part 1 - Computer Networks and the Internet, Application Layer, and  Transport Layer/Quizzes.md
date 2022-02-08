@@ -124,7 +124,7 @@ http://www.wagstaff.info:8080/horse.html or https://www.wagstaff.info:8080/horse
 
 ---
 
-**Question 5: TCP is connection oriented, which means that it has to deal with connection estblishment and termination. Which of the following statements are true?**
+**Question 5: TCP is connection oriented, which means that it has to deal with connection establishment and termination. Which of the following statements are true?**
 
 - [x] When a TCP connection is being established, the very first segment sent is a TCP SYN segment.
 - [x] When TCP closes a connection, it normally uses a 4-way handshake. 
@@ -157,6 +157,8 @@ http://www.wagstaff.info:8080/horse.html or https://www.wagstaff.info:8080/horse
 **Question 8: Assume we have a transport level connection with a capacity of 8 Mbit/s and that the delay between sender and receiver is 5 ms (one-way). Which is the optimal window size in bytes that the sender should use? Hint: calculate the bandwidth-delay product. Answer in number of bytes (not kB, not bits). Give only the value without units as your answer.**
 
 Optimal window size = capacity x RTT = 8 Mbit/s x 10 ms = 10000 bytes
+
+***NOTE: 8 * 125000 x 0.01 = 10000***
 
 ---
 
