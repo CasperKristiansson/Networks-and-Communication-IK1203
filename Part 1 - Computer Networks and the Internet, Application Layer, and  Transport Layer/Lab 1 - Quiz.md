@@ -125,3 +125,37 @@ HINT: See details of the Response Status Codes in the RFC7231.**
 IMPORTANT: You must write only the method name in uppercase without any white spaces.**
 
 HEAD
+
+## 13. Testing SMTP using OpenSSL
+
+**Question 2: During the authentication, you should see that the mail server sends a message with a 334 reply. What does the response code 334 signify?**
+
+- [ ] Redirection 
+- [ ] Failed authentication 
+- [ ] Client error 
+- [ ] Successful authentication 
+- [x] Server challenge 
+- [ ] Server error
+
+---
+
+**Question 4: Read RFC 5321 section 4.1 (Links to an external site.) and match the SMTP commands.**
+
+- HELO -> The sender introduces itself
+- VRFY -> Check if name is a local user
+- QUIT -> Instruct the SMTP server to close the connection
+- RSET -> Clear the current mail transaction
+- MAIL FROM -> Specify reverse-path (sender mailbox)
+- RCPT TO -> Specify the recipient (destination mailbox)
+- DATA -> Start of mail content
+
+---
+
+**Question 5: Read RFC 5321 Section 4.2 (Links to an external site.) and match the SMTP Reply Codes with their descriptions.**
+
+- 220 -> Service Ready
+- 250 -> Requested mail action okay, completed
+- 421 -> Service not available
+- 500 -> Syntax error, command unrecognized
+- 503 -> Bad sequence of commands
+- 554 -> Transaction failed
