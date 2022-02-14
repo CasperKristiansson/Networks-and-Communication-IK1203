@@ -51,8 +51,7 @@ public class TCPClient {
             System.out.println("Socket timed out!");
         }
 
-        if (this.shutdown) socket.close();
-
+        socket.close();
         return result.toByteArray();
     }
 }
