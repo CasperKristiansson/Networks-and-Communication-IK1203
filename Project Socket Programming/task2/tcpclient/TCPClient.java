@@ -15,7 +15,7 @@ public class TCPClient {
     }
 
     public byte[] askServer(String hostname, int port, byte[] bytesToServer) throws IOException {  
-        System.out.println("Shutdown: " + shutdown + " Timeout: " + timeout + " Limit: " + limit);     
+        // System.out.println("Shutdown: " + shutdown + " Timeout: " + timeout + " Limit: " + limit);     
         Socket socket = new Socket(hostname, port);
 
         socket.getOutputStream().write(bytesToServer);
@@ -36,11 +36,12 @@ public class TCPClient {
                 // If the limit is less than the buffer size, use the limit as the buffer size
                 if (this.limit < BUFFERSIZE) buffer = new byte[this.limit];
 
-                while ((readBytes = inputStream.read(buffer)) != -1 && totalBytes < this.limit) {
+                while ((readBytes = inputStream.read(buffer)) != -1) {
                     result.write(buffer, 0, readBytes);
                     totalBytes += readBytes;
-
+                    
                     if (totalBytes >= this.limit) break;
+                    
                     // To get the exact amount of bytes we need to adjust the buffer size for the last read
                     if (totalBytes + BUFFERSIZE > this.limit) buffer = new byte[this.limit - totalBytes];
                 }
@@ -48,7 +49,7 @@ public class TCPClient {
                 while ((readBytes = inputStream.read(buffer)) != -1) result.write(buffer, 0, readBytes);
             }
         } catch (SocketTimeoutException e) {
-            System.out.println("Socket timed out!");
+            // System.out.println("Socket timed out!");
         }
 
         socket.close();
