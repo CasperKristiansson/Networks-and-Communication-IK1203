@@ -3,12 +3,8 @@ import java.io.*;
 
 public class HTTPAsk {
     public static void main(String[] args) {
-        int port = 0;
-
         try {
-            // TODO: Temporarily hard-coded
-            // port = Integer.parseInt(args[0]);
-            port = 8080;
+            int port = Integer.parseInt(args[0]);
             ServerSocket serverSocket = new ServerSocket(port);
 
             while (true) {
@@ -52,8 +48,7 @@ public class HTTPAsk {
                     }
 
                     if (hostname.equals("") || portClient == 0) {
-                        sb.append("HTTP/1.1 400 Bad Request\r\n\r\n");
-                        sb.append("Missing hostname or port");
+                        sb.append("HTTP/1.1 400 Bad Request\r\n");
 
                     } else {
                         try {
@@ -63,8 +58,7 @@ public class HTTPAsk {
                             sb.append(new String(client.askServer(hostname, portClient, bytesToServer)));
 
                         } catch (IOException e) {
-                            sb.append("HTTP/1.1 500 Internal Server Error\r\n\r\n");
-                            sb.append("Error: " + e.getMessage());
+                            sb.append("HTTP/1.1 500 Internal Server Error\r\n");
                         }
                     }
                     
@@ -78,11 +72,11 @@ public class HTTPAsk {
             }
 
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Usage: java HTTPAsk <port>");
+            // System.out.println("Usage: java HTTPAsk <port>");
             System.exit(1);
 
         } catch (IOException e) {
-            System.out.println("Could not listen on port " + port);
+            // System.out.println("Could not listen on port);
             System.exit(1);
         }
     }
