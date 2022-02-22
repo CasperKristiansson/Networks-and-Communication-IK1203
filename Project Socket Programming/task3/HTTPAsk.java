@@ -1,4 +1,5 @@
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.io.*;
 
 public class HTTPAsk {
@@ -11,20 +12,22 @@ public class HTTPAsk {
                 Socket socket = serverSocket.accept();
                 // System.out.println("Accepted connection from " + socket.getInetAddress());
                 
-                BufferedReader socketInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                DataOutputStream socketOutput = new DataOutputStream(socket.getOutputStream());
+                byte[] buffer = new byte[1024];
+                socket.getInputStream().read(buffer);
+                String decodedString = new String(buffer, StandardCharsets.UTF_8);
+
+                OutputStream socketOutput = socket.getOutputStream();
 
                 StringBuilder sb = new StringBuilder();
-                String url = socketInput.readLine();
+                String url = decodedString.split(" ")[1];
                 String[] params = url.split("\\?");
                
-                if(params.length > 0 && params[0].equals("GET /ask")) {
+                if (params.length > 0 && params[0].equals("/ask")) {
                     String[] paramList = params[1].split("&");
-                    paramList[paramList.length - 1] = paramList[paramList.length - 1].substring(0, paramList[paramList.length - 1].length() - 9);
 
                     String hostname = "";
                     int portClient = 0;
-                    byte[] bytesToServer = new byte[0];;
+                    byte[] bytesToServer = new byte[0];
                     Integer timeout = null;
                     Integer limit = null;
                     boolean shutdown = false;
@@ -66,8 +69,7 @@ public class HTTPAsk {
                     sb.append("HTTP/1.1 404 Not Found\r\n\r\n");
                 }
 
-                socketOutput.writeBytes(sb.toString());
-                
+                socketOutput.write(sb.toString().getBytes());
                 socket.close();
             }
 
