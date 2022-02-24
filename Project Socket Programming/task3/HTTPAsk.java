@@ -19,7 +19,7 @@ public class HTTPAsk {
                     socket.getInputStream().read(buffer);
                     String decodedString = new String(buffer, StandardCharsets.UTF_8);
 
-                    if (!decodedString.split(" ")[0].equals("GET")) {
+                    if (!decodedString.split(" ")[0].equals("GET") || !decodedString.contains("HTTP/1.1")) {
                         sb.append("HTTP/1.1 400 Bad Request\r\n");
                         throw new Exception("Bad Request");
                     }
