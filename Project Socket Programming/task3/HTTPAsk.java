@@ -19,6 +19,11 @@ public class HTTPAsk {
                     socket.getInputStream().read(buffer);
                     String decodedString = new String(buffer, StandardCharsets.UTF_8);
 
+                    if (!decodedString.split(" ")[0].equals("GET")) {
+                        sb.append("HTTP/1.1 400 Bad Request\r\n");
+                        throw new Exception("Bad Request");
+                    }
+
                     String url = decodedString.split(" ")[1];
                     String[] params = url.split("\\?");
                 
@@ -40,6 +45,11 @@ public class HTTPAsk {
                         
                         for (String param : paramList) {
                             String[] keyValue = param.split("=");
+
+                            if(keyValue.length < 2) {
+                                sb.append("HTTP/1.1 400 Bad Request\r\n");
+                                throw new Exception("Bad Request");
+                            }
 
                             if (keyValue[0].equals("shutdown")) {
                                 shutdown = Boolean.parseBoolean(keyValue[1]);
