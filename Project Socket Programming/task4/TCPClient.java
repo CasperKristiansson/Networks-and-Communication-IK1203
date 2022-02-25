@@ -14,6 +14,8 @@ public class TCPClient {
     }
 
     public byte[] askServer(String hostname, int port, byte[] bytesToServer) throws IOException {  
+        // System.out.println("Shutdown: " + this.shutdown + " Timeout: " + this.timeout + " Limit: " + this.limit);     
+        // System.out.println("Connected to " + hostname + " on port " + port + " Bytes to server: " + bytesToServer.length);
         Socket socket = new Socket(hostname, port);
 
         socket.getOutputStream().write(bytesToServer);

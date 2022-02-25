@@ -18,7 +18,6 @@ public class MyRunnable implements Runnable {
         this.socket = socket;        
     }
 
-    @Override
     public void run() {
         try {
             String input = getInput();
@@ -81,7 +80,7 @@ public class MyRunnable implements Runnable {
                     this.hostname = keyValue[1];
                 } else if (keyValue[0].equals("port")) {
                     this.portClient = Integer.parseInt(keyValue[1]);
-                } else if (keyValue[0].equals("bytes")) {
+                } else if (keyValue[0].equals("string")) {
                     this.bytesToServer = keyValue[1].getBytes();
                 }
             }
@@ -116,7 +115,7 @@ public class MyRunnable implements Runnable {
             this.socket.getOutputStream().write(this.result.toString().getBytes());
             this.socket.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
 }
