@@ -100,8 +100,10 @@ public class MyRunnable implements Runnable {
         try {
             TCPClient client = new TCPClient(this.shutdown, this.timeout, this.limit);
 
+            String request = new String(client.askServer(this.hostname, this.portClient, this.bytesToServer));
+
             this.result.append("HTTP/1.1 200 OK\r\n\r\n");
-            this.result.append(new String(client.askServer(hostname, portClient, bytesToServer)));
+            this.result.append(request);
 
         } catch (Exception e) {
             this.result.append("HTTP/1.1 500 Internal Server Error\r\n");
