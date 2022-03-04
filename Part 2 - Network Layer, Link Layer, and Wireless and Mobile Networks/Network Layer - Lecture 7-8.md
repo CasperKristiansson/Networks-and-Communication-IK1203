@@ -68,7 +68,7 @@ DHCP can return more than just one ip address to new hosts. When a new host join
 - name and IP address of local DNS server
 - network mask (indicating network versus host portion of address)
 
-When a company needs address it usually byes a block of addresses from a ISP. The ISP will handle than more specific request so its advertisment could be that it tells the rest of the world to send me all packages with "200.23.16.0/20".
+When a company needs address it usually byes a block of addresses from a ISP. The ISP will handle than more specific request so its advertisement could be that it tells the rest of the world to send me all packages with "200.23.16.0/20".
 
 A ISP gets its addresses from ICANN (Internet Corporation for Assigned Names and Numbers)
 - Allocates addresses
@@ -77,13 +77,72 @@ A ISP gets its addresses from ICANN (Internet Corporation for Assigned Names and
 
 Local networks uses private addresses because each device can't have a unique address. Therefore it's only the start router that can assign addresses to the devices.
 
+NAT (Network Address Translation) builds on the structure that each main input port receives a ip address and the network has private addresses. The NAT translates the private address to the public address. The main router translates the private address using a custom port number (fake port number). It keeps track of all connections using a NAT address table.
 
-## 4.5 Routing algorithms
+16 bit port number field is available to have 65,535 simultaneous connections. A better solution to this would be IPv6.
 
-
-
-## 4.6 Routing in the Internet
-
+If the goal is to connect to a server in a NAT network there are a couple of different solutions. The first solution is to setup a static route to the server. This is the most common solution. The second solution is Universal Plug and Play (UPnP). This is a protocol that allows a device to connect to a server without knowing the server's address. The third solution is using a relay server. This solution builds on the theory that the server will connect the two devices.
 
 
-## 4.7 Broadcast and multicast routing
+## Basic Routing
+The basic "manual" approach is next-hop routing. The router will forward the packet to the next hop. The next hop is determined by the forwarding table. This solution only works only for small IP networks. **Dynamic** solutions is needed for large networks.
+
+<img align="right" height="200px" src="Images/Aggregation.png" />
+
+The fundamentals of dynamic routing:
+- Finding the best path to a destination
+    - Two types of paths:
+        - Direct path
+        - Indirect path
+- But what is the best path?
+    - Interior routing: numbers of hops or bandwidth
+    - External Routing: bushiness relations
+
+
+Routing aggregation also called *summarization* is a technique that combines multiple routes into one. This way the routing tables will be a lot smaller. Currently there are a total of 600000 global prefixes. Aggregation is often done manually.
+
+
+## Routing Information Protocol - RIP
+Metric is hop counts
+- 1: directly connected
+- 16: infinity
+- RIP cannot support networks with diameter > 15.
+- RIP messages are carried via UDP datagrams
+
+RIP builds on the simple logic of sharing to its neighbors all routes it can reach and the cost for reaching to them. These are than shared across the entire network to always calculate the lowest cost path. RIP does not specify the hoop count but rather each hoop is 1.
+
+Disadvantages of RIP:
+- Slow convergence
+    - Changes propagate slowly
+    - Each neighbor only speaks ~30 seconds
+- Instability
+    - After a router or link failure RIP takes minutes to stabilize
+- Hops cont may not always be the best route
+- Maximum useful metric value is 15
+- RIP uses lots of bandwidth
+
+
+## Open shortest Path First (OSPF)
+OSPF is a linked-state protocol. It uses IP directly and not UDP or TCP. OSPF networks are partitioned into **areas** to minimize cross-area communication.
+
+SPF
+- Actively test the status of neighbors
+- Build a Link state advertisement (LSA)
+- Using LSTA from all other routers builds delivery tree using Dijkstra's algorithm
+
+Advantages of SPF:
+- Full topology knowledge
+Easier to Troubleshoot
+- Fast Convergence
+
+Disadvantages of SPF:
+- Uses more memory
+
+OSPF Protocols
+- The Hello Protocol
+- The Exchange Protocol
+- The Flooding protocol
+
+
+## Border Gateway Protocol (BGP)
+Inter-domain routing protocol. Simple cases it uses static routing. The main purpose of it is network reachability between autonomous systems. 
