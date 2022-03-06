@@ -92,3 +92,87 @@
 - [x] By distributing transmission starting times in a randomized way, CSMA/CA reduces the probability that several nodes start transmitting at the same time,.
 - [ ] CSMA relies on the presence of a common reference clock, to which all nodes are synchronized.
 - [ ] With CSMA/CA, the transmitting nodes detect if there is a collision, and abort their transmissions.
+
+
+# Home Assignment 4
+
+**Question 1: Consider the following statements about wireless LAN (WLAN) according to the  IEEE 802.11 standard. What statements are correct? (A wireless unit could be a computer with a wireless interface or a smartphone, for instance.)**
+
+- [x] A wireless unit needs to register with an access point before it can use the wireless network.
+- [ ] An access point is an IP router that routes IP packets between a wireless network and a fixed network.
+- [ ] The available radio frequency range is divided into channels. An access point uses all available channels simultaneously. 
+- [x] Traffic between wireless units within the same BSS (Basic Service Set) goes via the access point.
+- [x] Wireless LANs (such as IEEE 802.11) and wired LANs (such as IEEE 802.3) use different frame formats.
+- [ ] A wireless unit can send a frame to several access points at the same time.
+
+
+**Question 2: Ethernet is the dominating standard for (wired) LANs. Which of the following statements are correct?**
+
+- [ ] Ethernet's approach for detecting collisions is based on that the receiver acknowledges correctly received frames to the sender.
+- [x] The Ethernet standard supports several different technologies for the physical layer, such as twister pair ("TP") cable and optical fiber.
+- [ ] Ethernet automatically retransmits frames with bit errors. 
+- [x] Ethernet is based on CSMA/CD. 
+- [x] Ethernet does not require all nodes to have synchronized clocks; instead, transmitter and receiver are synchronized at the point of transmission.
+- [ ] Ethernet uses IP addresses to identify sender and receiver. 
+
+
+**Question 3: Considering the following statements about Ethernet networks with switches. What is true?**
+
+- [x] A switch learns the location of nodes by observing the traffic that passes through the switch.
+- [ ] If there is more than one switch in the network, the switches use ARP to learn the location of nodes.
+- [x] In a switched network, multiple nodes can transmit at the same time. 
+- [ ] In a switched network, there can only be as many nodes as there are ports on the switch.
+
+
+**Question 4: Which of the following statements are correct about medium access according to CSMA/CA for IEEE 802.11 wireless networks ("WLAN")?**
+
+- [x] The RTS/CTS handshake is optional and hence does not need to be used for each frame transmission.
+- [x] A collision is discovered by the sender not receiving an acknowledgement ( ACK frame) from the receiver.
+- [ ] DIFS is a time constant that tells how long a node should wait before sending after it has discovered that the channel is busy.
+- [ ] The RTS/CTS handshake does not help to deal with the "hidden terminal" problem.
+- [ ] Unlike CSMA/CD, a node does not need to listen before sending. 
+
+
+**Question 5: Which of the following statements about ARP and MAC-addresses are correct?**
+
+- [x] Unlike IP addresses, MAC addresses don't need to be configured.
+- [ ] MAC addresses are assigned through DHCP (Dynamic Host Configuration Protocol).
+- [x] A computer has the same MAC-adress, no matter to which network it is connected.
+- [ ] The ARP protocol uses DNS (Domain Name System) to translate addresses. 
+
+
+**Question 6: This question is about address tables in Ethernet switches and how they are updated. Consider a simple network with three Ethernet switches: A, B och C. They are connected in sequence: A – B – C. To each switch, a computer is connected: computer a is connected to switch A, computer b to switch B, and computer c to switch C. Suppose that the network has just been brought into operation and all address tables (switch tables) are empty. Computer a sends a frame addressed to computer b, which responds by sending a frame a. Answer the following questions about when address information is stored in the address tables in the different switches:**
+
+- Information about computer a is stored in the address table in switch A -> During the transmission from a to b
+- Information about computer b is stored in the address table in switch A -> During the transmission from b to a
+- Information about computer a is stored in the address table in switch B -> During the transmission from a to b
+- Information about computer b is stored in the address table in switch B -> During the transmission from b to a
+- Information about computer a is stored in the address table in switch C -> During the transmission from a to b
+- Information about computer b is stored in the address table in switch C -> Not during any of the two transmissions
+
+
+**Question 7: Which of the following functions belong in the link layer?**
+
+- [ ] Avoid network congestion
+- [x] Coordinate access to a common, shared medium.
+- [x] Flow control
+- [x] Detect bit errors
+- [ ] Find a way from source to destination through a network of routers.
+
+
+**Question 8: Give explanations for the following concepts in wireless networks:**
+- Base station -> Connects a wireless network to a fixed network
+- Infrastructure mode -> Network with base stations
+- Ad hoc mode -> Self-organizing network without base stations
+- Handoff -> Mobile node moves between base stations
+- Wireless link -> Shared medium coordinated with medium access protocol
+
+
+**Question 9: CSMA (Carrier-Sense Multiple Access) protocols are used to coordinate access to a shared medium. This question is about CSMA protocols in general, and CSMA/CA and CSMA/CD in particular.**
+
+- [ ] With CSMA/CA, the transmitting nodes detect if there is a collision, and abort their transmissions.
+- [ ] By listening ("Carrier Sense") before sending, CSMA protocols make sure that there can be no collisions.
+- [x] With CSMA/CD, the transmitting nodes detect if there is a collision, and abort their transmissions.
+- [x] By distributing transmission starting times in a randomized way, CSMA/CA reduces the probability that several nodes start transmitting at the same time,.
+- [ ] CSMA relies on the presence of a common reference clock, to which all nodes are synchronized.
+- [ ] CSMA/CD is used primarily for wireless networks, where the probability for collisions is high. 
