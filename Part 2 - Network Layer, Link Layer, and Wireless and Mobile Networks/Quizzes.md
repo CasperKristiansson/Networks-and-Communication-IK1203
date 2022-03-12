@@ -26,7 +26,7 @@
 - [ ] RIP is a link state protocol.
 - [x] OSPF and IS-IS are link state protocols.
 - [ ] OSPF is a distance vector protocol. 
-- [ ] RIP is a distance vector protocol. 
+- [x] RIP is a distance vector protocol. 
 
 
 **Question 4: Which of the following statements about IP routing are correct?**
